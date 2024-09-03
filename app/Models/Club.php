@@ -12,19 +12,6 @@ class Club extends Model
 
     protected $guarded = [];
 
-
-    /**
-     * REPLACE THE FOLLOWING ARRAYS IN YOUR Club MODEL
-     *
-     * Replace your existing $fillable and/or $guarded and/or $appends arrays with these - we already merged
-     * any existing attributes from your model, and only included the one(s) that need changing.
-     */
-
-
-    protected $fillable = [
-        'location',
-    ];
-
     protected $appends = [
         'location',
     ];

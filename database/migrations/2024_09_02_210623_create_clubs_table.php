@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->string('location');
+            $table->string('geocomplete')->nullable();
             $table->string('website')->nullable();
             $table->string('instagram')->nullable();
             $table->float('latitude')->nullable();
