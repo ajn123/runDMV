@@ -29,6 +29,7 @@ class ClubResource extends Resource
                 Forms\Components\TextInput::make('name')->required(),
                 Forms\Components\TextInput::make('website')->prefix('https://'),
                 Forms\Components\TextInput::make('instagram')->prefix('@'),
+                Forms\Components\TextInput::make('description')->helperText("A Summary of the group (day they meet, miles, etc{"),
                 Forms\Components\TextInput::make('geocomplete'),
                 Map::make("location") ->mapControls([
                     'mapTypeControl'    => true,

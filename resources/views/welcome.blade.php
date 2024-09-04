@@ -17,9 +17,10 @@
         @livewireStyles
     </head>
     <body>
-    hellos
 
-    <livewire:counter />
+    <div class="container mx-auto">
+
+    </div>
 
     @livewireScripts
     </body>
