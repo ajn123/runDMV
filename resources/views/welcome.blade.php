@@ -32,7 +32,7 @@
     </div>
 
     <div class="container mx-auto">
-        <div>
+        <div class="">
             @livewire(App\Livewire\Map::class)
         </div>
 
