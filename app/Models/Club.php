@@ -16,6 +16,10 @@ class Club extends Model
         'location',
     ];
 
+    protected $casts = [
+        'day_of_week' => 'array'
+    ];
+
     /**
      * ADD THE FOLLOWING METHODS TO YOUR Club MODEL
      *

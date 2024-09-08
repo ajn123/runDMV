@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\DaysOfTheWeek;
 use App\Filament\Resources\ClubResource\Pages;
 use App\Filament\Resources\ClubResource\RelationManagers;
 use App\Models\Club;
@@ -27,9 +28,10 @@ class ClubResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')->required(),
+                Forms\Components\RichEditor::make('description'),
                 Forms\Components\TextInput::make('website')->prefix('https://'),
+                Forms\Components\CheckboxList::make('day_of_week')->options(DaysOfTheWeek::class),
                 Forms\Components\TextInput::make('instagram')->prefix('@'),
-                Forms\Components\TextInput::make('description')->helperText("A Summary of the group (day they meet, miles, etc{"),
                 Forms\Components\TextInput::make('geocomplete'),
                 Map::make("location") ->mapControls([
                     'mapTypeControl'    => true,

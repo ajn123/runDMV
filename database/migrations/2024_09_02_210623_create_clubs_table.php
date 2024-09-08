@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('instagram')->nullable();
             $table->float('latitude')->nullable();
             $table->float('longitude')->nullable();
+            $table->json('day_of_week')->nullable();
             $table->timestamps();
         });
     }
