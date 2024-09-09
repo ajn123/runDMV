@@ -20,6 +20,16 @@
     </head>
     <body>
 
+<div class="bg-red-500" style="z-index: 1;">
+
+
+    <div class=" max-w-sm bg-gray-300 m-auto p-8 fixed inset-0 h-40 rounded-md ">
+        <h1>
+            Smalll
+        </h1>
+    </div>
+
+</div>
 
     <div class="w-full bg-gray-300 h-10 p-3 text-balance hidden sm:block">
         runDMV

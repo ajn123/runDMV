@@ -6,6 +6,9 @@
     </div>
 
 
+
+
+
     <script async
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgO7VRe_RflivYCZ1Hloz0bRuFs1a_wBo&loading=async&callback=initMap">
     </script>
@@ -23,17 +26,22 @@
             });
 
             const initialMarkers = @js($clubs);
-            console.log(initialMarkers);
 
+            const markers = [];
             for (let index = 0; index < initialMarkers.length; index++) {
 
                 const markerData = initialMarkers[index];
 
-                new google.maps.Marker({
+                markers[index] = new google.maps.Marker({
                     position: { lat: markerData.location.lat, lng: markerData.location.lng },
                     map,
                     title: "Re-Click to Delete",
                 });
+
+                markers[index].addListener('click', () => {
+                    alert(markerData.name);
+                    console.log(markerData.name);
+                })
             }
 
 
