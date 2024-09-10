@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>runDMV</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -22,14 +22,10 @@
     <h1 class="justify-center text-center">
         Find all your run clubs and races.
     </h1>
-
     @yield('content')
 </div>
 
-
-
 @livewireScripts
 </body>
-
 
 </html>
