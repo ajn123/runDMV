@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,6 +13,12 @@ class Race extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'distances' => 'array'
+        'distances' => 'array',
+        'date' => 'datetime'
     ];
+
+    protected function serializeDate(DateTimeInterface $date): string
+    {
+        return $date->format('Y');
+    }
 }

@@ -9,9 +9,9 @@
                 {{ $race->name }}
             </div>
             <div class="row-span-1">
-                {{ $race->date }}
+                {{ $race->date->format('l, jS \\of F Y') }}
             </div>
-            <div class="row-span-1">
+            <div class="row-span-1 hover:bg-blue-300 transition-all ease-in rounded-lg">
                 <a href="{{ $race->website }}" class="flex">
                     <x-heroicon-s-magnifying-glass-circle class="h-6 w-6"/>
                     Website
@@ -19,14 +19,13 @@
             </div>
 
             <div class="row-span-2 col-span-3">
-
-                    <h3>
-                        {{ $race->description }}
-                    </h3>
+                {!! html_entity_decode($race->description) !!}
             </div>
 
             <div class="row-span-1">
-                Distances:
+                @isset($race->distances)
+                    Distances: {{ join(', ',$race->distances) }}
+                @endif
             </div>
 
 

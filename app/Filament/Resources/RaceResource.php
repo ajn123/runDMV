@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\Distances;
 use App\Filament\Resources\RaceResource\Pages;
 use App\Filament\Resources\RaceResource\RelationManagers;
 use App\Models\Race;
@@ -24,7 +25,10 @@ class RaceResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name'),
-                Forms\Components\DatePicker::make('Date')
+                Forms\Components\DatePicker::make('date'),
+                Forms\Components\TextInput::make('website')->prefix('https://'),
+                Forms\Components\RichEditor::make('description'),
+                Forms\Components\CheckboxList::make('distances')->options(Distances::class)
             ]);
     }
 
@@ -33,7 +37,7 @@ class RaceResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('Date')
+                Tables\Columns\TextColumn::make('date')
             ])
             ->filters([
                 //
