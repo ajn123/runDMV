@@ -12,10 +12,10 @@
     @endif
     <div class="flex flex-row gap-2 p-2 justify-center">
         @if(isset($club->instagram))
-            @livewire(\App\Livewire\SocialButton::class, ['url' => $club->instagram])
+            @livewire(\App\Livewire\SocialButton::class, ['url' => $club->instagram, 'website' => false])
         @endif
         @if(isset($club->website))
-            @livewire(\App\Livewire\SocialButton::class, ['url' => $club->website])
+            @livewire(\App\Livewire\SocialButton::class, ['url' => $club->website, 'website' => true])
         @endif
     </div>
 </div>
