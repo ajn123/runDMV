@@ -13,8 +13,8 @@ class RaceSeeder extends Seeder
      */
     public function run(): void
     {
-        Race::truncate();
+        Race::factory(100)->create();
 
-        // TODO: import races that you need
+
     }
 }

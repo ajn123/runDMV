@@ -5,8 +5,14 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome', [
-        'races' => \App\Models\Race::all(),
+    return view('livewire.list-clubs', [
         'clubs' => \App\Models\Club::all()
+    ]);
+});
+
+Route::get('/races', function () {
+    return view('livewire.list-races',
+    [
+        'races' => \App\Models\Race::all()
     ]);
 });

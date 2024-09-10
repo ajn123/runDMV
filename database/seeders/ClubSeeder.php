@@ -14,8 +14,6 @@ class ClubSeeder extends Seeder
     public function run(): void
     {
 
-
-        Club::truncate();
         $clubs =[
             [
                 "id" => 1,
@@ -117,8 +115,10 @@ class ClubSeeder extends Seeder
 
         foreach ($clubs as $i => $club)
         {
-            $club = Club::create($club);
-            $club->save();
+            if(!Club::find($club['id'])) {
+                $club = Club::create($club);
+                $club->save();
+            }
         }
     }
 }

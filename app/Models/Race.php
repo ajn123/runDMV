@@ -10,4 +10,8 @@ class Race extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    protected $casts = [
+        'distances' => 'array'
+    ];
 }

@@ -1,13 +1,9 @@
-<div>
+<div class="mt-1">
 
     <div
         wire:ignore id="map"
-       class="rounded-md mt-3 drop-shadow-lg">
+       class="rounded-md mt-1 drop-shadow-lg">
     </div>
-
-
-
-
 
     <script async
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgO7VRe_RflivYCZ1Hloz0bRuFs1a_wBo&loading=async&callback=initMap">
@@ -35,7 +31,7 @@
                 markers[index] = new google.maps.Marker({
                     position: { lat: markerData.location.lat, lng: markerData.location.lng },
                     map,
-                    title: "Re-Click to Delete",
+                    title: "Zoom in",
                 });
 
                 markers[index].addListener('click', () => {

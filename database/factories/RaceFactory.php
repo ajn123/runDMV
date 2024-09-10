@@ -17,7 +17,10 @@ class RaceFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name,
+            'description' => fake()->text(),
+            'date' => fake()->date('Y-m-d'),
+            'website' => fake()->url()
         ];
     }
 }

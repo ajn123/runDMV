@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('races', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('Date');
+            $table->dateTime('date');
             $table->string('name');
+            $table->text('description')->nullable();
+            $table->json('distances')->nullable();
+            $table->string('website')->nullable();
             $table->timestamps();
         });
     }
