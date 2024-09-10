@@ -13,6 +13,6 @@ Route::get('/', function () {
 Route::get('/races', function () {
     return view('livewire.list-races',
     [
-        'races' => \App\Models\Race::all()
+        'races' => \App\Models\Race::orderBy('date')->get()
     ]);
 });

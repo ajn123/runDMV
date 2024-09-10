@@ -14,8 +14,8 @@
         @if(isset($club->instagram))
             @livewire(\App\Livewire\SocialButton::class, ['url' => $club->instagram])
         @endif
-            @if(isset($club->website))
-                @livewire(\App\Livewire\SocialButton::class, ['url' => $club->website])
-            @endif
+        @if(isset($club->website))
+            @livewire(\App\Livewire\SocialButton::class, ['url' => $club->website])
+        @endif
     </div>
 </div>

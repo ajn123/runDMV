@@ -17,8 +17,5 @@ class Race extends Model
         'date' => 'datetime'
     ];
 
-    protected function serializeDate(DateTimeInterface $date): string
-    {
-        return $date->format('Y');
-    }
+
 }
