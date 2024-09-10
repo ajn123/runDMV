@@ -12,7 +12,7 @@
                 {{ $race->date->format('l, jS \\of F Y') }}
             </div>
             <div class="row-span-1 hover:bg-blue-300 transition-all ease-in rounded-lg">
-                <a href="{{ $race->website }}" class="flex">
+                <a href="https://{{ $race->website }}" class="flex">
                     <x-heroicon-s-magnifying-glass-circle class="h-6 w-6"/>
                     Website
                 </a>
