@@ -3,7 +3,7 @@
 
 <div>
         <div class="grid grid-rows-3 grid-flow-col gap-6 bg-gray-100 hover:bg-gray-200 transition-all duration-150 ease-in border-2 shadow-2xl border-amber-500 mb-4 p-2 rounded-md">
-            <div class="row-span-1">
+            <div class="row-span-1 font-bold italic">
                 {{ $race->name }}
             </div>
             <div class="row-span-1">

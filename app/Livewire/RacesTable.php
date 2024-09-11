@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Views\Filters\DateFilter;
+use Rappasoft\LaravelLivewireTables\Views\Filters\DateRangeFilter;
 use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 
 class RacesTable extends DataTableComponent
@@ -41,7 +43,17 @@ class RacesTable extends DataTableComponent
             SelectFilter::make('Distances', 'distances')
                 ->options(array_column(Distances::cases(), "value"))->filter(function (Builder $builder, string $value) {
                     $builder->whereJsonContains('distances', Distances::cases()[$value] );
-                })
+                }),
+            DateRangeFilter::make('Date', 'date')->config([
+                'min' => '1900-01-01',  // Earliest Acceptable Date
+                'max' => '2100-12-31', // Latest Acceptable Date
+                'pillFormat' => 'd M Y', // Format for use in Filter Pills
+                'placeholder' => 'Enter Date', // A placeholder value
+            ])->filter(function (Builder $builder, array $dateRange) { // Expects an array.
+                Log::debug($dateRange);
+                $builder->whereDate('date', '>=', $dateRange['minDate']) // minDate is the start date selected
+                ->whereDate('date', '<=', $dateRange['maxDate']); // maxDate is the end date selected
+            }),
         ];
     }
 
@@ -51,7 +63,9 @@ class RacesTable extends DataTableComponent
             Column::make('ID', 'id')->hideIf(true),
             Column::make('Name', 'name')
                 ->sortable()->searchable(),
-            Column::make('Date', 'date')->sortable(),
+            Column::make('Date', 'date')->sortable()->searchable()->format(function ($v) {
+                return $v->format('l, jS \\of F Y');
+            }),
             Column::make('Website', 'website'),
 
         ];
