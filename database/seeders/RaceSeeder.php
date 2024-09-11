@@ -14,7 +14,5 @@ class RaceSeeder extends Seeder
     public function run(): void
     {
         Race::factory(100)->create();
-
-
     }
 }
