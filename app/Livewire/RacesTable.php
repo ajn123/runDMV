@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Enums\Distances;
 use App\Models\Race;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
@@ -22,10 +23,11 @@ class RacesTable extends DataTableComponent
         $this->setSearchLive();
         $this->setSearchEnabled();
         $this->setTrimSearchStringEnabled();
-        $this->setPrimaryKey('id');
-//            ->setTableRowUrl(function($row) {
-//                return route('admin.users.show', $row);
-//            });
+        $this->setPrimaryKey('id')
+            ->setTableRowUrl(function($row) {
+                return route('race-show',
+                    Race::find($row['id']));
+            });
     }
 
     public function builder(): Builder
@@ -46,6 +48,7 @@ class RacesTable extends DataTableComponent
     public function columns(): array
     {
         return [
+            Column::make('ID', 'id')->hideIf(true),
             Column::make('Name', 'name')
                 ->sortable()->searchable(),
             Column::make('Date', 'date')->sortable(),
