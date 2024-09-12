@@ -17,20 +17,19 @@
 
         @filamentStyles
         @vite('resources/css/app.css')
+        @stack('scripts')
     </head>
 
     <body class="antialiased">
-
         <x-navbar/>
 
         <div class="container mx-auto">
             {{ $slot }}
         </div>
 
-
         @livewire('notifications')
-
         @filamentScripts
         @vite('resources/js/app.js')
+
     </body>
 </html>

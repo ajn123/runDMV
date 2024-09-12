@@ -1,13 +1,18 @@
 <div class="mt-1">
 
+
     <div
         wire:ignore id="map"
        class="rounded-md mt-1 drop-shadow-lg">
     </div>
 
-    <script async
+
+    <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgO7VRe_RflivYCZ1Hloz0bRuFs1a_wBo&loading=async&callback=initMap">
+
     </script>
+
+
 
     <script>
 
@@ -20,7 +25,15 @@
                 center: { lat: @js( $lat ), lng: @js( $lng ) },
                 mapId: "DEMO_MAP_ID",
             });
+        }
 
+
+    </script>
+
+    @script
+    <script>
+        console.log('hello');
+        function placeMarkers() {
             const initialMarkers = @js($clubs);
 
             const markers = [];
@@ -35,20 +48,15 @@
                 });
 
                 markers[index].addListener('click', () => {
-                    alert(markerData.name);
-                    console.log(markerData.name);
+                    console.log('yes');
+                    $wire.mountAction('club', {id: markerData.id});
                 })
             }
-
-
         }
-
-
-
-        /* Initialize map when Livewire has loaded */
-        document.addEventListener('livewire:load', function () {
-            initMap();
-        });
+        placeMarkers();
 
     </script>
+    @endscript
+
+    <x-filament-actions::modals />
 </div>
