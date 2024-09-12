@@ -7,15 +7,20 @@
     </div>
 
 
+
+
     <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgO7VRe_RflivYCZ1Hloz0bRuFs1a_wBo&loading=async&callback=initMap">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgO7VRe_RflivYCZ1Hloz0bRuFs1a_wBo">
+
 
     </script>
 
-
+    @script
 
     <script>
 
+
+        console.log('hi');
         /* How to initialize the map */
         let map;
         async function initMap() {
@@ -45,9 +50,11 @@
                 })
             }
         }
-
+        initMap();
 
     </script>
+    @endscript
+
 
 
     <x-filament-actions::modals />
