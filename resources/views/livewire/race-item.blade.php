@@ -22,7 +22,7 @@
 
             <div class="row-span-1">
                 @isset($race->distances)
-                    Distances: {{ join(', ',$race->distances) }}
+                    <h1 class="font-bold inline-block"> Distances:</h1> {{ join(', ',$race->distances) }}
                 @endif
             </div>
 

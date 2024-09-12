@@ -33,8 +33,7 @@ class Race extends RunningModel
             DatePicker::make('date')->required(),
             TextInput::make('website')->prefix('https://'),
             TextInput::make('description'),
-            CheckboxList::make('distances')->options(array_column(Distances::cases(), "value")
-    )
+            CheckboxList::make('distances')->options(Distances::class)
         ];
     }
 

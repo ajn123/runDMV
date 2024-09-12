@@ -30,6 +30,11 @@ class RaceForm extends Component implements HasForms, HasActions
 
     public Race $race;
 
+    public function mount(): void
+    {
+        $this->form->fill();
+    }
+
     public function create()
     {
 
@@ -45,8 +50,7 @@ class RaceForm extends Component implements HasForms, HasActions
     public function showAction(): Action
     {
 
-        return CreateAction::make('show')
-            ->model(Race::class)
+        return Action::make('show')
             ->form(Race::getForm())
             ->slideOver(true)
             ->successNotificationTitle('Race Submitted - Pending Approval From Admin')->modalFooterActions()->after(function ()
