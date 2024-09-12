@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+import preset from './vendor/filament/support/tailwind.config.preset'
 export default {
-
+    presets: [preset],
     mode: 'jit',
   content: [
     './pages/**/*.{html,js}',

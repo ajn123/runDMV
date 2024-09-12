@@ -20,8 +20,6 @@ class RacesTable extends DataTableComponent
     public function configure(): void
     {
 
-
-
         $this->setSearchLive();
         $this->setSearchEnabled();
         $this->setTrimSearchStringEnabled();
@@ -50,7 +48,6 @@ class RacesTable extends DataTableComponent
                 'pillFormat' => 'd M Y', // Format for use in Filter Pills
                 'placeholder' => 'Enter Date', // A placeholder value
             ])->filter(function (Builder $builder, array $dateRange) { // Expects an array.
-                Log::debug($dateRange);
                 $builder->whereDate('date', '>=', $dateRange['minDate']) // minDate is the start date selected
                 ->whereDate('date', '<=', $dateRange['maxDate']); // maxDate is the end date selected
             }),

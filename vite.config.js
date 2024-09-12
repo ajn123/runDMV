@@ -8,7 +8,8 @@ export default defineConfig({
             refresh: [
                 ... refreshPaths,
             'app/Livewire/**',
-            'app/Filament/**',]
+            'app/Filament/**',
+                './components/**/*.{html,js}',]
         }),
     ],
 });

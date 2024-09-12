@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name') }}</title>
 
     <!-- Fonts -->
@@ -12,20 +13,31 @@
 
     @vite('resources/css/app.css')
 
+
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+
+    @filamentStyles
     @livewireStyles
 </head>
 <body>
 
 @include('components.navbar')
 
-<div class="container mx-auto">
+<div class="container mx-auto antialiased">
     <h1 class="justify-center text-center">
         Find all your run clubs and races.
     </h1>
     @yield('content')
 </div>
 
+@filamentScripts
 @livewireScripts
+
+@vite('resources/js/app.js')
 </body>
 
 </html>
