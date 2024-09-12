@@ -2,11 +2,14 @@
 import preset from './vendor/filament/support/tailwind.config.preset'
 export default {
     presets: [preset],
-    mode: 'jit',
   content: [
+      './app/Filament/**/*.php',
+      './resources/views/filament/**/*.blade.php',
+      './vendor/filament/**/*.blade.php',
     './pages/**/*.{html,js}',
     './components/**/*.{html,js}',
       './Livewire/**/*.{php,js}',
+      './app/Livewire/**/*.{php,js}',
       './Resources/**/*.{php,js,html}',
       "./node_modules/flowbite/**/*.js",
       './vendor/rappasoft/laravel-livewire-tables/resources/views/**/*.blade.php',
@@ -15,7 +18,6 @@ export default {
     extend: {},
   },
   plugins: [
-      require('@tailwindcss/forms'),
       require('flowbite/plugin')
   ]
 }

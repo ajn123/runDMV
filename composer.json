@@ -10,6 +10,7 @@
         "cheesegrits/filament-google-maps": "^3.0",
         "filament/filament": "^3.2",
         "filament/forms": "^3.2",
+        "filament/notifications": "^3.2",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",

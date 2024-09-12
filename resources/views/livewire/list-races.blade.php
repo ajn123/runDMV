@@ -1,6 +1,4 @@
-@extends('components.app')
-
-@section('content')
+<x-layouts.app>
 
 <div class="">
     <div>
@@ -10,4 +8,4 @@
     <livewire:races-table />
 </div>
 
-@endsection
+</x-layouts.app>

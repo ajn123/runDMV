@@ -1,16 +1,12 @@
 
 <div>
 
-    <div class="grid gap-4">
+    <div class="grid gap-4 my-6">
 
-        <div class="bg-blue-500 rounded-md w-32 mb-4 hover:bg-blue-700" onclick={{ $this->showAction }} >
-        </div>
-
-
+        {{ $this->submitRaceAction }}
+        <x-filament-actions::modals />
     </div>
 
 
-    <x-filament-actions::modals />
-    <livewire:notifications />
 
 </div>

@@ -28,35 +28,24 @@ class RaceForm extends Component implements HasForms, HasActions
     use InteractsWithActions;
     use InteractsWithForms;
 
-    public Race $race;
 
-    public function mount(): void
+    public function submitRaceAction(): Action
     {
-        $this->form->fill();
-    }
-
-    public function create()
-    {
-
-    }
-
-    public function form(Form $form): Form
-    {
-        return $form
-            ->schema(Race::getForm());
-    }
-
-
-    public function showAction(): Action
-    {
-
-        return Action::make('show')
+        return Action::make('SubmitRace')
+            ->color('success')
+            ->button()
+            ->label("Request A Race to be Added")
             ->form(Race::getForm())
-            ->slideOver(true)
-            ->successNotificationTitle('Race Submitted - Pending Approval From Admin')->modalFooterActions()->after(function ()
+            ->slideOver(true)->after(function ()
             {
                 Mail::to('ajn123@vt.edu')->send(new RaceCreated());
+
+                Notification::make()
+                    ->title('Race Submitted - Pending Approval From Admin')
+                    ->success()
+                    ->send();
             });
+
     }
 
 
@@ -64,8 +53,6 @@ class RaceForm extends Component implements HasForms, HasActions
     {
         return view('livewire.race-form');
     }
-
-
 
 
 }

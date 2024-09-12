@@ -21,9 +21,14 @@
 
     <body class="antialiased">
 
-    <x-navbar/>
+        <x-navbar/>
 
-        {{ $slot }}
+        <div class="container mx-auto">
+            {{ $slot }}
+        </div>
+
+
+        @livewire('notifications')
 
         @filamentScripts
         @vite('resources/js/app.js')

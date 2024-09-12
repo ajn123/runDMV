@@ -1,6 +1,5 @@
-@extends('components.app')
+<x-layouts.app>
 
-@section('content')
     <div>
         <div class="mt-1">
             @livewire(App\Livewire\Map::class)
@@ -12,5 +11,5 @@
             @endforeach
         </div>
     </div>
+</x-layouts.app>
 
-@endsection
