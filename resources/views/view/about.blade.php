@@ -8,7 +8,7 @@
         </div>
         <div class="items-start space-y-2 ">
             <div class="flex flex-col sm:flex-row items-center space-x-2 pt-8">
-                <img src="{{asset('build/assets/MeRunning.png')}}" class="w-40 shadow-2xl h-40 mr-4 rounded-lg" alt="me running"/>
+                <img src="{{asset('images/MeRunning.png')}}" class="w-40 shadow-2xl h-40 mr-4 rounded-lg" alt="me running"/>
 
                 <div class="flex flex-col">
                 <h3 class="pb-2 pt-4 text-2xl font-bold leading-8 tracking-tight">{Alex Norton - Runner and Software Developer}</h3>
