@@ -5,11 +5,8 @@ namespace App\Livewire;
 use App\Enums\Distances;
 use App\Models\Race;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Log;
-use Livewire\Component;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use Rappasoft\LaravelLivewireTables\Views\Filters\DateFilter;
 use Rappasoft\LaravelLivewireTables\Views\Filters\DateRangeFilter;
 use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 
@@ -24,7 +21,7 @@ class RacesTable extends DataTableComponent
         $this->setSearchEnabled();
         $this->setTrimSearchStringEnabled();
         $this->setPrimaryKey('id')
-            ->setTableRowUrl(function($row) {
+            ->setTableRowUrl(function ($row) {
                 return route('race-show',
                     Race::find($row['id']));
             });
@@ -39,8 +36,8 @@ class RacesTable extends DataTableComponent
     {
         return [
             SelectFilter::make('Distances', 'distances')
-                ->options(array_column(Distances::cases(), "value"))->filter(function (Builder $builder, string $value) {
-                    $builder->whereJsonContains('distances', Distances::cases()[$value] );
+                ->options(array_column(Distances::cases(), 'value'))->filter(function (Builder $builder, string $value) {
+                    $builder->whereJsonContains('distances', Distances::cases()[$value]);
                 }),
             DateRangeFilter::make('Date', 'date')->config([
                 'min' => '1900-01-01',  // Earliest Acceptable Date
@@ -49,7 +46,7 @@ class RacesTable extends DataTableComponent
                 'placeholder' => 'Enter Date', // A placeholder value
             ])->filter(function (Builder $builder, array $dateRange) { // Expects an array.
                 $builder->whereDate('date', '>=', $dateRange['minDate']) // minDate is the start date selected
-                ->whereDate('date', '<=', $dateRange['maxDate']); // maxDate is the end date selected
+                    ->whereDate('date', '<=', $dateRange['maxDate']); // maxDate is the end date selected
             }),
         ];
     }

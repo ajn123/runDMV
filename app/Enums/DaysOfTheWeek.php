@@ -12,5 +12,4 @@ enum DaysOfTheWeek: string
     case Saturday = 'Saturday';
     case Sunday = 'Sunday';
 
-
 }

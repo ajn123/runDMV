@@ -7,6 +7,7 @@ use Livewire\Component;
 class SocialButton extends Component
 {
     public $url;
+
     public $website;
 
     public function render()

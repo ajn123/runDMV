@@ -2,9 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Mail\RaceCreated;
 use App\Models\Club;
-use App\Models\Race;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
@@ -12,12 +10,10 @@ use Filament\Actions\ViewAction;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Notifications\Notification;
 use Livewire\Component;
 
-class Map extends Component implements HasForms, HasActions
+class Map extends Component implements HasActions, HasForms
 {
-
     use InteractsWithActions;
     use InteractsWithForms;
 
@@ -26,23 +22,17 @@ class Map extends Component implements HasForms, HasActions
         return ViewAction::make('viewClub')
             ->record(function (array $arguments) {
                 return Club::find($arguments['id']);
-            })->label("Run Club In The DMV")
+            })->label('Run Club In The DMV')
             ->form([
-                TextInput::make('name')
-                    ->required()
-                    ->maxLength(255)
-                    ->url(),
-                TextInput::make('website')
-                    ->required()
-                    ->maxLength(255)->url(),
-                TextInput::make('instagram')
-                    ->required()
-                    ->maxLength(255),
+                TextInput::make('name'),
+                TextInput::make('website'),
+                TextInput::make('instagram'),
             ]);
 
     }
 
     public $lat = 38.904974072966;
+
     public $lng = -77.003001885428;
 
     public $clubs;
@@ -55,7 +45,7 @@ class Map extends Component implements HasForms, HasActions
     public function render()
     {
         return view('livewire.map', [
-            'clubs' => Club::all()
+            'clubs' => Club::all(),
         ]);
     }
 }

@@ -20,7 +20,7 @@ class RaceFactory extends Factory
             'name' => fake()->name,
             'description' => fake()->text(),
             'date' => fake()->date('Y-m-d'),
-            'website' => fake()->url()
+            'website' => fake()->url(),
         ];
     }
 }

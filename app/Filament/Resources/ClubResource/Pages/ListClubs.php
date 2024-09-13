@@ -3,8 +3,6 @@
 namespace App\Filament\Resources\ClubResource\Pages;
 
 use App\Filament\Resources\ClubResource;
-use Cheesegrits\FilamentGoogleMaps\Widgets\MapTableWidget;
-use Cheesegrits\FilamentGoogleMaps\Widgets\MapWidget;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
@@ -22,7 +20,7 @@ class ListClubs extends ListRecords
     protected function getHeaderWidgets(): array
     {
         return [
-            ClubResource\Widgets\ClubsMap::class
+            ClubResource\Widgets\ClubsMap::class,
         ];
     }
 }

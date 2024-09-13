@@ -3,16 +3,10 @@
 namespace App\Models;
 
 use App\Enums\Distances;
-use DateTimeInterface;
-use Faker\Provider\Text;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\MarkdownEditor;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class Race extends RunningModel
 {
@@ -22,9 +16,8 @@ class Race extends RunningModel
 
     protected $casts = [
         'distances' => 'array',
-        'date' => 'datetime'
+        'date' => 'datetime',
     ];
-
 
     public static function getForm(): array
     {
@@ -33,8 +26,7 @@ class Race extends RunningModel
             DatePicker::make('date')->required(),
             TextInput::make('website')->prefix('https://'),
             TextInput::make('description'),
-            CheckboxList::make('distances')->options(Distances::class)
+            CheckboxList::make('distances')->options(Distances::class),
         ];
     }
-
 }

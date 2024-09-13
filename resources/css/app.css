@@ -9,6 +9,12 @@
 
 }
 
+@layer components {
+    .nav-links {
+        @apply  ml-5 p-2 rounded-lg hover:bg-gray-400 hover:scale-110;
+    }
+}
+
 
 #map {
     width:100%;

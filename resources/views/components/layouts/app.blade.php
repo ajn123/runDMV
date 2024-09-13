@@ -29,7 +29,6 @@
 
         @livewire('notifications')
 
-
         @filamentScripts
         @vite('resources/js/app.js')
 
