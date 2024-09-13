@@ -16,7 +16,6 @@ class RacesTable extends DataTableComponent
 
     public function configure(): void
     {
-
         $this->setSearchLive();
         $this->setSearchEnabled();
         $this->setTrimSearchStringEnabled();

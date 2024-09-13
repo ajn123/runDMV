@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\Distances;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -25,7 +26,7 @@ class Race extends RunningModel
             TextInput::make('name')->required(),
             DatePicker::make('date')->required(),
             TextInput::make('website')->prefix('https://'),
-            TextInput::make('description'),
+            RichEditor::make('description'),
             CheckboxList::make('distances')->options(Distances::class),
         ];
     }

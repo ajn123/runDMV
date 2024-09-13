@@ -1,9 +1,16 @@
 <x-layouts.app>
 
+
+
     <div>
         <div class="mt-1">
             @livewire(App\Livewire\Map::class)
         </div>
+
+        <div class="justify-between w-full">
+            @livewire('club-form')
+        </div>
+
 
         <div class="flex flex-wrap w-full flex-row divide-y flex-1 justify-between">
             @foreach($clubs as $club)

@@ -20,40 +20,7 @@ class ClubResource extends Resource
 
     public static function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('name')->required(),
-                Forms\Components\Checkbox::make('enabled')->label('Do you want others to see this?'),
-                Forms\Components\RichEditor::make('description'),
-                Forms\Components\TextInput::make('website')->prefix('https://'),
-                Forms\Components\CheckboxList::make('day_of_week')->options(DaysOfTheWeek::class),
-                Forms\Components\TextInput::make('instagram')->prefix('@'),
-                Forms\Components\TextInput::make('geocomplete'),
-                Map::make('location')->mapControls([
-                    'mapTypeControl' => true,
-                    'scaleControl' => true,
-                    'streetViewControl' => true,
-                    'rotateControl' => true,
-                    'fullscreenControl' => true,
-                    'searchBoxControl' => false, // creates geocomplete field inside map
-                    'zoomControl' => false,
-                ])
-                    ->height(fn () => '400px') // map height (width is controlled by Filament options)
-                    ->defaultZoom(5) // default zoom level when opening form
-                    ->autocomplete('geocomplete') // field on form to use as Places geocompletion field
-                    ->autocompleteReverse(true) // reverse geocode marker location to autocomplete field
-                    ->reverseGeocode([
-                        'street' => '%n %S',
-                        'city' => '%L',
-                        'state' => '%A1',
-                        'zip' => '%z',
-                    ]) // reverse geocode marker location to form fields, see notes below
-                    ->debug() // prints reverse geocode format strings to the debug console
-                    ->defaultLocation([39.526610, -107.727261]) // default for new forms
-                    ->draggable() // allow dragging to move marker
-                    ->clickable(true) // allow clicking to move marker
-                    ->geolocate(),
-            ]);
+        return $form->schema(Club::getForm());
     }
 
     public static function table(Table $table): Table

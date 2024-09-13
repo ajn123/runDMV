@@ -39,13 +39,13 @@ class Map extends Component implements HasActions, HasForms
 
     public function mount()
     {
-        $this->clubs = Club::all();
+        $this->clubs = Club::enabled()->get();
     }
 
     public function render()
     {
         return view('livewire.map', [
-            'clubs' => Club::all(),
+            'clubs' => Club::enabled()->get(),
         ]);
     }
 }

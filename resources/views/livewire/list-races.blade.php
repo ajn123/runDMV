@@ -1,9 +1,7 @@
 <x-layouts.app>
 
 <div class="">
-    <div>
-        @livewire('race-form')
-    </div>
+    @livewire('race-form')
 
     <livewire:races-table />
 </div>
