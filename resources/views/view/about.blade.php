@@ -8,7 +8,7 @@
         </div>
         <div class="items-start space-y-2 ">
             <div class="flex flex-col sm:flex-row items-center space-x-2 pt-8">
-                <img src="{{asset('images/MeRunning.png')}}" class="w-40 shadow-2xl h-40 mr-4 rounded-lg" alt="me running"/>
+                <img src="{{asset('images/MeRunning.png')}}" class="w-96 h-96 shadow-2xl  mr-4 rounded-lg" alt="me running"/>
 
                 <div class="flex flex-col">
                 <h3 class="pb-2 pt-4 text-2xl font-bold leading-8 tracking-tight">{Alex Norton - Runner and Software Developer}</h3>
@@ -16,7 +16,10 @@
 
                 <div class="text-gray-500 dark:text-gray-400">Project was made with PHP, Laravel, Filament and deployed using Forge</div>
 
-                <div class="text-gray-500 dark:text-gray-400">You can reach out to me at emailing</div>
+                <div class="text-gray-500 dark:text-gray-400">You can reach out to me at
+                <a href="mailto:alex.norton.dev@gmail.com" class="font-bold italic hover:text-lg transition-all ease-in">alex.norton.dev@gmail.com</a> or checkout my
+                    <a href="https://www.instagram.com/ajstudiopro" target="_blank" class="italic text-lg font-bold border border-purple-500 rounded-lg bg-purple-200 hover:bg-purple-400 transition-all ease-in p-1">Instagram.</a>
+                </div>
                 <div class="flex space-x-3 pt-6">
 {{--                    <SocialIcon kind="mail" href={`mailto:${email}`} />--}}
 {{--                    <SocialIcon kind="github" href={github} />--}}
