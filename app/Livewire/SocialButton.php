@@ -10,6 +10,8 @@ class SocialButton extends Component
 
     public $website;
 
+
+    public $color;
     public function render()
     {
         return view('livewire.social-button');
