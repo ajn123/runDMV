@@ -4,7 +4,6 @@ namespace App\Livewire;
 
 use App\Mail\RaceCreated;
 use App\Models\Club;
-use App\Models\Race;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
@@ -14,7 +13,7 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
 use Livewire\Component;
 
-class ListClubs extends Component  implements HasActions, HasForms
+class ListClubs extends Component implements HasActions, HasForms
 {
     use InteractsWithActions;
     use InteractsWithForms;

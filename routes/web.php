@@ -9,8 +9,8 @@ Route::get('/', function () {
     ]);
 })->name('clubs');
 
-Route::get('/about', function (){
-   return view('view.about');
+Route::get('/about', function () {
+    return view('view.about');
 })->name('about');
 
 Route::get('/races', function () {

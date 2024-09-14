@@ -24,33 +24,8 @@ class ShowMapResource extends Resource
                 Forms\Components\TextInput::make('name')->required(),
                 Forms\Components\TextInput::make('website')->prefix('https://'),
                 Forms\Components\TextInput::make('instagram')->prefix('@'),
-                Forms\Components\TextInput::make('description')->helperText('A Summary of the group (day they meet, miles, etc{'),
-                Forms\Components\TextInput::make('geocomplete'),
-                Map::make('location')->mapControls([
-                    'mapTypeControl' => true,
-                    'scaleControl' => true,
-                    'streetViewControl' => true,
-                    'rotateControl' => true,
-                    'fullscreenControl' => true,
-                    'searchBoxControl' => false, // creates geocomplete field inside map
-                    'zoomControl' => false,
-                ])
-                    ->height(fn () => '400px') // map height (width is controlled by Filament options)
-                    ->defaultZoom(5) // default zoom level when opening form
-                    ->autocomplete('geocomplete') // field on form to use as Places geocompletion field
-                    ->autocompleteReverse(true) // reverse geocode marker location to autocomplete field
-                    ->reverseGeocode([
-                        'street' => '%n %S',
-                        'city' => '%L',
-                        'state' => '%A1',
-                        'zip' => '%z',
-                    ]) // reverse geocode marker location to form fields, see notes below
-                    ->debug() // prints reverse geocode format strings to the debug console
-                    ->defaultLocation([39.526610, -107.727261]) // default for new forms
-                    ->draggable() // allow dragging to move marker
-                    ->clickable(true) // allow clicking to move marker
-                    ->geolocate(),
-            ]);
+                Forms\Components\TextInput::make('description')->helperText('A Summary of the group (day they meet, miles, etc'),
+                ]);
     }
 
     public static function table(Table $table): Table

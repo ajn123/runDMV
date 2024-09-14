@@ -4,7 +4,6 @@ namespace App\Models;
 
 use App\Enums\DaysOfTheWeek;
 use Cheesegrits\FilamentGoogleMaps\Fields\Map;
-use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
@@ -95,7 +94,8 @@ class Club extends RunningModel
         return 'location';
     }
 
-    public static function getForm(): array {
+    public static function getForm(): array
+    {
         return [
             TextInput::make('name')->required(),
             RichEditor::make('description'),

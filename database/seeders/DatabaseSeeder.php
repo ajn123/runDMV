@@ -15,11 +15,11 @@ class DatabaseSeeder extends Seeder
     {
         //User::truncate();
 
-//        User::factory()->create([
-//            'name' => 'Test User',
-//            'email' => 'test@example.com',
-//            'password' => bcrypt('password'),
-//        ]);
+        //        User::factory()->create([
+        //            'name' => 'Test User',
+        //            'email' => 'test@example.com',
+        //            'password' => bcrypt('password'),
+        //        ]);
 
         $this->call(ClubSeeder::class);
         $this->call(RaceSeeder::class);

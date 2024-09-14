@@ -27,20 +27,21 @@ class Map extends Component implements HasActions, HasForms
             ->form([
                 TextInput::make('name'),
                 TextInput::make('website')->hint(function ($get) {
-                    if($get('website')) {
+                    if ($get('website')) {
                         return new HtmlString("<a href=\"https://{$get('website')}\" target=\"_blank\">Open Website</a>");
-                        }
+                    }
                 }),
                 TextInput::make('instagram')->hint(function ($get) {
-                    if($get('instagram')) {
+                    if ($get('instagram')) {
                         return new HtmlString("<a href=\"https://www.instagram.com/{$get('instagram')}\" target=\"_blank\">Open Instagram</a>");
                     }
-                })
+                }),
             ]);
 
     }
 
     public $lat = 38.904974072966;
+
     public $lng = -77.003001885428;
 
     public $clubs;

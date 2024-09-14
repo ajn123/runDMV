@@ -2,11 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Enums\DaysOfTheWeek;
 use App\Filament\Resources\ClubResource\Pages;
 use App\Models\Club;
-use Cheesegrits\FilamentGoogleMaps\Fields\Map;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
