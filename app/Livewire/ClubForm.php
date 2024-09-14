@@ -33,10 +33,10 @@ class ClubForm extends Component implements HasActions, HasForms
             ->form(
                 [
                     TextInput::make('name')->required(),
-                    RichEditor::make('description'),
+                    RichEditor::make('description')->label('Description - meeting location, special events, etc...'),
                     TextInput::make('website')->prefix('https://'),
                     TextInput::make('instagram')->prefix('@'),
-                    CheckboxList::make('day_of_week')->options(DaysOfTheWeek::class),
+                    CheckboxList::make('day_of_week')->options(DaysOfTheWeek::class)->label("Which days does your club meet:"),
                 ]
             )
             ->slideOver(true)->after(function (Club $club) {
