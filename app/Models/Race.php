@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use App\Enums\Distances;
+use Carbon\Carbon;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Race extends RunningModel
@@ -29,5 +31,10 @@ class Race extends RunningModel
             RichEditor::make('description'),
             CheckboxList::make('distances')->options(Distances::class),
         ];
+    }
+
+    public function scopeInFuture(Builder $query)
+    {
+        $query->where('date', '>=', Carbon::now()->toDateString());
     }
 }

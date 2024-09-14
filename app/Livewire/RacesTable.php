@@ -28,7 +28,7 @@ class RacesTable extends DataTableComponent
 
     public function builder(): Builder
     {
-        return Race::enabled();
+        return Race::enabled()->inFuture()->orderBy('date', 'ASC');
     }
 
     public function filters(): array
