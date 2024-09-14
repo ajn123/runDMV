@@ -19,8 +19,6 @@ class ListClubs extends ListRecords
 
     protected function getHeaderWidgets(): array
     {
-        return [
-            ClubResource\Widgets\ClubsMap::class,
-        ];
+        return [];
     }
 }

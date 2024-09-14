@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ClubResource\Pages;
 use App\Models\Club;
-use Cheesegrits\FilamentGoogleMaps\Fields\Map;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -25,7 +24,7 @@ class ShowMapResource extends Resource
                 Forms\Components\TextInput::make('website')->prefix('https://'),
                 Forms\Components\TextInput::make('instagram')->prefix('@'),
                 Forms\Components\TextInput::make('description')->helperText('A Summary of the group (day they meet, miles, etc'),
-                ]);
+            ]);
     }
 
     public static function table(Table $table): Table

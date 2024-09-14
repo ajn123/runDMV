@@ -4,12 +4,15 @@ namespace App\Filament\Resources;
 
 use App\Enums\Distances;
 use App\Filament\Resources\RaceResource\Pages;
+use App\Filament\Resources\RaceResource\RelationManagers;
 use App\Models\Race;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class RaceResource extends Resource
 {
@@ -22,11 +25,11 @@ class RaceResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name'),
-                Forms\Components\Checkbox::make('enabled')->label('Do you want others to see this?'),
+                Forms\Components\Checkbox::make('enabled')->label('Do you want this to be enbaled'),
                 Forms\Components\DatePicker::make('date'),
                 Forms\Components\TextInput::make('website')->prefix('https://'),
                 Forms\Components\RichEditor::make('description'),
-                Forms\Components\CheckboxList::make('distances')->options(Distances::class),
+                Forms\Components\CheckboxList::make('distances')->options(Distances::class)
             ]);
     }
 
@@ -35,7 +38,7 @@ class RaceResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')->searchable(),
-                Tables\Columns\TextColumn::make('date'),
+                Tables\Columns\TextColumn::make('date')
             ])
             ->filters([
                 //

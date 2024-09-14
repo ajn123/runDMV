@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Enums\DaysOfTheWeek;
-use Cheesegrits\FilamentGoogleMaps\Fields\Map;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
@@ -100,33 +99,8 @@ class Club extends RunningModel
             TextInput::make('name')->required(),
             RichEditor::make('description'),
             TextInput::make('website')->prefix('https://'),
-            CheckboxList::make('day_of_week')->options(DaysOfTheWeek::class),
             TextInput::make('instagram')->prefix('@'),
-            TextInput::make('geocomplete'),
-            Map::make('location')->mapControls([
-                'mapTypeControl' => true,
-                'scaleControl' => true,
-                'streetViewControl' => true,
-                'rotateControl' => true,
-                'fullscreenControl' => true,
-                'searchBoxControl' => false, // creates geocomplete field inside map
-                'zoomControl' => false,
-            ])
-                ->height(fn () => '400px') // map height (width is controlled by Filament options)
-                ->defaultZoom(10) // default zoom level when opening form
-                ->autocomplete('geocomplete') // field on form to use as Places geocompletion field
-                ->autocompleteReverse(true) // reverse geocode marker location to autocomplete field
-                ->reverseGeocode([
-                    'street' => '%n %S',
-                    'city' => '%L',
-                    'state' => '%A1',
-                    'zip' => '%z',
-                ]) // reverse geocode marker location to form fields, see notes below
-                ->debug() // prints reverse geocode format strings to the debug console
-                ->defaultLocation([38.904974072966, -77.003001885428]) // default for new forms
-                ->draggable() // allow dragging to move marker
-                ->clickable(true) // allow clicking to move marker
-                ->geolocate(),
+            CheckboxList::make('day_of_week')->options(DaysOfTheWeek::class),
         ];
     }
 }
