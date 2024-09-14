@@ -12,7 +12,12 @@
 
                 <div class="flex flex-col">
                 <h3 class="pb-2 pt-4 text-2xl font-bold leading-8 tracking-tight">{Alex Norton - Runner and Software Developer}</h3>
-                <div class="text-gray-500 dark:text-gray-400">This is meant to be a free resource for run clubs and races in the DMV.</div>
+                <div class="text-gray-500 dark:text-gray-400">This is meant to be a free resource for run clubs and races in the DMV.
+                    <br/>
+                    The Project is Open Source and is fully available <a class="transition-all ease-in hover:text-lg font-bold" href="https://www.github.com/ajn/runDMV" target="_blank">
+                        Here
+                    </a>
+                </div>
 
                 <div class="text-gray-500 dark:text-gray-400">Project was made with PHP, Laravel, Filament and deployed using Forge</div>
 
