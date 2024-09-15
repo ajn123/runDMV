@@ -38,6 +38,7 @@ class RacesTable extends DataTableComponent
                 ->options(array_column(Distances::cases(), 'value'))->filter(function (Builder $builder, string $value) {
                     $builder->whereJsonContains('distances', Distances::cases()[$value]);
                 }),
+
             DateRangeFilter::make('Date', 'date')->config([
                 'min' => '1900-01-01',  // Earliest Acceptable Date
                 'max' => '2100-12-31', // Latest Acceptable Date
