@@ -13,6 +13,8 @@ enum Distances: string implements HasLabel
     case Marathon = 'Marathon';
     case Ultra = 'Ultra Marathon';
 
+    case Special = 'Special Disance';
+
     public function getLabel(): ?string
     {
         return match ($this) {
@@ -21,7 +23,8 @@ enum Distances: string implements HasLabel
             self::Tenk => '10 K',
             self::HalfMarathon => 'Half Marathon',
             self::Marathon => 'Full Marathon',
-            self::Ultra => 'Ultra Marathon'
+            self::Ultra => 'Ultra Marathon',
+            self::Special => 'Unique Distance'
         };
     }
 }
