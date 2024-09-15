@@ -35,18 +35,8 @@ class ClubResource extends Resource
                 ->height(fn () => '400px') // map height (width is controlled by Filament options)
                 ->defaultZoom(10) // default zoom level when opening form
                 ->autocomplete('geocomplete') // field on form to use as Places geocompletion field
-                ->autocompleteReverse(true) // reverse geocode marker location to autocomplete field
-                ->reverseGeocode([
-                    'street' => '%n %S',
-                    'city' => '%L',
-                    'state' => '%A1',
-                    'zip' => '%z',
-                ]) // reverse geocode marker location to form fields, see notes below
-                ->debug() // prints reverse geocode format strings to the debug console
                 ->defaultLocation([38.904974072966, -77.003001885428]) // default for new forms
-                ->draggable() // allow dragging to move marker
-                ->clickable(true) // allow clicking to move marker
-                ->geolocate();
+                ->clickable(true);
         return $form->schema($clubForm);
     }
 
