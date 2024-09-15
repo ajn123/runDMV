@@ -9,4 +9,8 @@
     <a class="{{ Route::is('about') ? 'bg-green-400': ''}} nav-links" href="/about">
         About
     </a>
+
+    <a class="nav-links hover:bg-fuchsia-500" target="_blank" href="https://www.instagram.com/rundmvrun">
+        <i class="fa-brands fa-instagram fa-2xl"></i>
+    </a>
 </div>

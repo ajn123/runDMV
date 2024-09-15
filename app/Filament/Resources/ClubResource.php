@@ -24,18 +24,19 @@ class ClubResource extends Resource
         $clubForm[] = Checkbox::make('enabled');
         $clubForm[] = TextInput::make('geocomplete');
         $clubForm[] = Map::make('location')->mapControls([
-                'mapTypeControl' => true,
-                'scaleControl' => true,
-                'rotateControl' => true,
-                'fullscreenControl' => true,
-                'searchBoxControl' => false, // creates geocomplete field inside map
-                'zoomControl' => false,
-            ])
-                ->height(fn () => '400px') // map height (width is controlled by Filament options)
-                ->defaultZoom(10) // default zoom level when opening form
-                ->autocomplete('geocomplete') // field on form to use as Places geocompletion field
-                ->defaultLocation([38.904974072966, -77.003001885428]) // default for new forms
-                ->clickable(true);
+            'mapTypeControl' => true,
+            'scaleControl' => true,
+            'rotateControl' => true,
+            'fullscreenControl' => true,
+            'searchBoxControl' => false, // creates geocomplete field inside map
+            'zoomControl' => false,
+        ])
+            ->height(fn () => '400px') // map height (width is controlled by Filament options)
+            ->defaultZoom(10) // default zoom level when opening form
+            ->autocomplete('geocomplete') // field on form to use as Places geocompletion field
+            ->defaultLocation([38.904974072966, -77.003001885428]) // default for new forms
+            ->clickable(true);
+
         return $form->schema($clubForm);
     }
 

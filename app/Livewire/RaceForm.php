@@ -32,7 +32,7 @@ class RaceForm extends Component implements HasActions, HasForms
                 $race->enabled = false;
                 $race->save();
 
-                Mail::to('ajn123@vt.edu')->send(new RaceCreated);
+                Mail::to('ajn123@vt.edu')->send(new RaceCreated($race));
 
                 Notification::make()
                     ->title('Race Submitted - Pending Approval From Admin')
