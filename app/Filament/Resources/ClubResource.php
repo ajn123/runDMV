@@ -26,7 +26,6 @@ class ClubResource extends Resource
         $clubForm[] = Map::make('location')->mapControls([
                 'mapTypeControl' => true,
                 'scaleControl' => true,
-                'streetViewControl' => true,
                 'rotateControl' => true,
                 'fullscreenControl' => true,
                 'searchBoxControl' => false, // creates geocomplete field inside map
