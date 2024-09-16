@@ -33,7 +33,7 @@ class Map extends Component implements HasActions, HasForms
                 }),
                 TextInput::make('instagram')->hint(function ($get) {
                     if ($get('instagram')) {
-                        return new HtmlString("<a href=\"https://www.instagram.com/{$get('instagram')}\" target=\"_blank\">Open Instagram</a>");
+                        return new HtmlString("<a href=\"https://{$get('instagram')}\" target=\"_blank\">Open Instagram</a>");
                     }
                 }),
             ]);
