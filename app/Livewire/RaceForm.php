@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Actions\DisableModel;
 use App\Mail\RaceCreated;
 use App\Models\Race;
 use Filament\Actions\Action;
@@ -27,10 +28,9 @@ class RaceForm extends Component implements HasActions, HasForms
             ->button()
             ->label('Request A Race to be Added')
             ->form(Race::getForm())
-            ->slideOver(true)->after(function (Race $race) {
+            ->slideOver(true)->after(function (Race $race, DisableModel $model) {
 
-                $race->enabled = false;
-                $race->save();
+                $model->handle($race);
 
                 Mail::to('ajn123@vt.edu')->send(new RaceCreated($race));
 

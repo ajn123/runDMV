@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use App\Models\Race;
+use App\Models\RunningModel;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
@@ -16,7 +17,7 @@ class RaceCreated extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(public ?Race $race = null)
+    public function __construct(public ?RunningModel $race = null)
     {
         //
     }

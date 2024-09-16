@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Actions\DisableModel;
 use App\Mail\RaceCreated;
 use App\Models\Club;
 use Filament\Actions\Action;
@@ -19,6 +20,13 @@ class ClubForm extends Component implements HasActions, HasForms
     use InteractsWithActions;
     use InteractsWithForms;
 
+    private DisableModel $model;
+
+    public function boot(DisableModel $model)
+    {
+        $this->model = $model;
+    }
+
     public function submitClubAction(): Action
     {
         return CreateAction::make('SubmitClub')
@@ -29,9 +37,9 @@ class ClubForm extends Component implements HasActions, HasForms
             ->form(Club::getForm()
             )
             ->slideOver(true)->after(function (Club $club) {
-                $club->enabled = false;
-                $club->save();
-                Mail::to('ajn123@vt.edu')->send(new RaceCreated);
+                $this->model->handle($club);
+
+                Mail::to('ajn123@vt.edu')->send(new RaceCreated($club));
 
                 Notification::make()
                     ->title('Club Submitted - Pending Approval From Admin')

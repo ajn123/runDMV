@@ -6,6 +6,7 @@ use App\Enums\DaysOfTheWeek;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -102,5 +103,19 @@ class Club extends RunningModel
             TextInput::make('instagram')->prefix('@'),
             CheckboxList::make('day_of_week')->options(DaysOfTheWeek::class),
         ];
+    }
+
+    public function instagram(): Attribute
+    {
+        return Attribute::make(
+            get: fn($instagram) => $instagram ?  "https://instagram.com/" . $instagram: null
+        );
+    }
+
+    public function website(): Attribute
+    {
+        return Attribute::make(
+            get: fn($website) => $website ? "https://" . $website: null
+        );
     }
 }

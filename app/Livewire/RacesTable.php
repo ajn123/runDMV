@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Enums\DateFormats;
 use App\Enums\Distances;
 use App\Models\Race;
 use Illuminate\Database\Eloquent\Builder;
@@ -57,9 +58,7 @@ class RacesTable extends DataTableComponent
             Column::make('ID', 'id')->hideIf(true),
             Column::make('Name', 'name')
                 ->sortable()->searchable(),
-            Column::make('Date', 'date')->sortable()->searchable()->format(function ($v) {
-                return $v->format('l, jS \\of F Y');
-            }),
+            Column::make('Date', 'date')->sortable()->searchable(),
             Column::make('Website', 'website'),
 
         ];

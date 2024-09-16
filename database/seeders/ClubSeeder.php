@@ -64,7 +64,7 @@ class ClubSeeder extends Seeder
             ],
             [
                 'id' => 4,
-                'name' => 'District Running Collective',
+                'name' => 'District Race Collective',
                 'description' => null,
                 'geocomplete' => '1001 Rhode Island Ave NE, Washington, DC 20018, USA',
                 'website' => 'districtrunningcollective.com/',
