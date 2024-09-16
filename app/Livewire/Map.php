@@ -28,12 +28,12 @@ class Map extends Component implements HasActions, HasForms
                 TextInput::make('name'),
                 TextInput::make('website')->hint(function ($get) {
                     if ($get('website')) {
-                        return new HtmlString("<a href=\"https://{$get('website')}\" target=\"_blank\">Open Website</a>");
+                        return new HtmlString("<a href=\"{$get('website')}\" target=\"_blank\">Open Website</a>");
                     }
                 }),
                 TextInput::make('instagram')->hint(function ($get) {
                     if ($get('instagram')) {
-                        return new HtmlString("<a href=\"https://{$get('instagram')}\" target=\"_blank\">Open Instagram</a>");
+                        return new HtmlString("<a href=\"{$get('instagram')}\" target=\"_blank\">Open Instagram</a>");
                     }
                 }),
             ]);
