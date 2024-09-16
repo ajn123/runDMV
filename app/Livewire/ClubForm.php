@@ -39,7 +39,7 @@ class ClubForm extends Component implements HasActions, HasForms
             ->slideOver(true)->after(function (Club $club) {
                 $this->model->handle($club);
 
-                Mail::to('ajn123@vt.edu')->send(new RaceCreated($club));
+                //Mail::to('ajn123@vt.edu')->send(new RaceCreated($club));
 
                 Notification::make()
                     ->title('Club Submitted - Pending Approval From Admin')

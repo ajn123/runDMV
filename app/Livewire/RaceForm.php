@@ -20,6 +20,13 @@ class RaceForm extends Component implements HasActions, HasForms
     use InteractsWithActions;
     use InteractsWithForms;
 
+    private DisableModel $model;
+
+    public function boot(DisableModel $model)
+    {
+        $this->model = $model;
+    }
+
     public function submitRaceAction(): Action
     {
         return CreateAction::make('SubmitRace')
@@ -28,11 +35,10 @@ class RaceForm extends Component implements HasActions, HasForms
             ->button()
             ->label('Request A Race to be Added')
             ->form(Race::getForm())
-            ->slideOver(true)->after(function (Race $race, DisableModel $model) {
+            ->slideOver(true)->after(function (Race $race) {
+                $this->model->handle($race);
 
-                $model->handle($race);
-
-                Mail::to('ajn123@vt.edu')->send(new RaceCreated($race));
+                //Mail::to('ajn123@vt.edu')->send(new RaceCreated($race));
 
                 Notification::make()
                     ->title('Race Submitted - Pending Approval From Admin')
