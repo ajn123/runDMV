@@ -16,7 +16,7 @@ class RaceCreated extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(public Race $race)
+    public function __construct(public ?Race $race = null)
     {
         //
     }

@@ -13,30 +13,9 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
 use Livewire\Component;
 
-class ListClubs extends Component implements HasActions, HasForms
+class ListClubs extends Component
 {
-    use InteractsWithActions;
-    use InteractsWithForms;
 
-    public function submitClubAction(): Action
-    {
-        return CreateAction::make('SubmitClub')
-            ->model(Club::class)
-            ->color('success')
-            ->button()
-            ->label('Request A Race to be Added')
-            ->form(Club::getForm())
-            ->slideOver(true)->after(function (Club $club) {
-                $club->enabled = false;
-                $club->save();
-                Mail::to('ajn123@vt.edu')->send(new RaceCreated);
-
-                Notification::make()
-                    ->title('Club Submitted - Pending Approval From Admin')
-                    ->success()
-                    ->send();
-            });
-    }
 
     public function render()
     {
