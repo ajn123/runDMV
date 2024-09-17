@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Club;
+use App\Models\Race;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,13 +15,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        //User::truncate();
+        User::truncate();
+        Club::truncate();
+        Race::truncate();
 
-        //        User::factory()->create([
-        //            'name' => 'Test User',
-        //            'email' => 'test@example.com',
-        //            'password' => bcrypt('password'),
-        //        ]);
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password' => bcrypt('password'),
+        ]);
+
+
 
         $this->call(ClubSeeder::class);
         $this->call(RaceSeeder::class);

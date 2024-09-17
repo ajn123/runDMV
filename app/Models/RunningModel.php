@@ -11,4 +11,9 @@ abstract class RunningModel extends Model
     {
         return $builder->where('enabled', true);
     }
+
+    public function scopeDisabled(Builder $builder)
+    {
+        return $builder->where('enabled', false);
+    }
 }

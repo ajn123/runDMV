@@ -21,6 +21,7 @@ class RaceFactory extends Factory
             'description' => fake()->text(),
             'date' => fake()->date('Y-m-d'),
             'website' => fake()->url(),
+            'enabled' => fake()->boolean()
         ];
     }
 }

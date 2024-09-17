@@ -9,7 +9,9 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class RaceResource extends Resource
 {
@@ -38,7 +40,9 @@ class RaceResource extends Resource
                 Tables\Columns\TextColumn::make('date'),
             ])
             ->filters([
-                //
+                Tables\Filters\Filter::make('enabled')->default(),
+                Filter::make('disabled')
+                    ->query(fn (Builder $query): Builder => $query->where('enabled', false))
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
