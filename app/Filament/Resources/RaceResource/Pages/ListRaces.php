@@ -22,6 +22,4 @@ class ListRaces extends ListRecords
     {
         return [StatsOverview::class];
     }
-
-
 }

@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class ClubResource extends Resource
 {
@@ -50,8 +51,7 @@ class ClubResource extends Resource
             ])
             ->filters([
                 Tables\Filters\Filter::make('enabled')->default(),
-                Filter::make('disabled')
-                    ->query(fn (Builder $query): Builder => $query->where('enabled', false))
+                Filter::make('disabled')->query(fn (Builder $query): Builder => $query->where('enabled', false))
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
