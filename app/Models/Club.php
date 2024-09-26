@@ -9,6 +9,7 @@ use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Club extends RunningModel
 {
@@ -105,17 +106,39 @@ class Club extends RunningModel
         ];
     }
 
-    public function instagram(): Attribute
+
+    public function instagramUrl(): ?string
     {
-        return Attribute::make(
-            get: fn($instagram) => $instagram ?  "https://instagram.com/" . $instagram: null
-        );
+        return $this->instagram ?  "https://instagram.com/" . $this->instagram: null;
     }
+
+    public function websiteUrl(): ?string
+    {
+        return $this->website ? "https://" . $this->website: null;
+    }
+
 
     public function website(): Attribute
     {
         return Attribute::make(
-            get: fn($website) => $website ? "https://" . $website: null
+            set: function ($value) {
+                if (Str::startsWith($value, 'https://')) {
+                    return Str::after($value, 'https://');
+                }
+                return $value;
+            }
+        );
+    }
+
+    public function instagram(): Attribute
+    {
+        return Attribute::make(
+            set: function ($value) {
+                if (Str::startsWith($value, 'https://www.instagram.com/')) {
+                    return Str::after($value, 'https://www.instagram.com/');
+                }
+                return $value;
+            }
         );
     }
 }

@@ -5,10 +5,10 @@
                 {{ $club->name }}
             </h1>
             @if(isset($club->instagram))
-                @livewire(\App\Livewire\SocialButton::class, ['url' => $club->instagram, 'website' => false, 'color' => 'bg-purple-400'])
+                @livewire(\App\Livewire\SocialButton::class, ['url' => $club->instagramUrl(), 'website' => false, 'color' => 'bg-purple-400'])
             @endif
             @if(isset($club->website))
-                @livewire(\App\Livewire\SocialButton::class, ['url' => $club->website, 'website' => true, 'color' => 'bg-blue-400'])
+                @livewire(\App\Livewire\SocialButton::class, ['url' => $club->websiteUrl(), 'website' => true, 'color' => 'bg-blue-400'])
             @endif
         </div>
     </div>
