@@ -18,9 +18,6 @@
     @script
 
     <script>
-
-
-        console.log('hi');
         /* How to initialize the map */
         let map;
         async function initMap() {
