@@ -18,6 +18,7 @@
         @filamentStyles
         @vite('resources/css/app.css')
         @stack('scripts')
+        
     </head>
 
     <body class="antialiased">
