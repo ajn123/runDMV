@@ -12,7 +12,6 @@ enum Distances: string implements HasLabel
     case HalfMarathon = 'Half Marathon';
     case Marathon = 'Marathon';
     case Ultra = 'Ultra Marathon';
-
     case Special = 'Special Disance';
 
     public function getLabel(): ?string
