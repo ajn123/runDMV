@@ -60,13 +60,18 @@
                    modal.style.display = 'none';
 
                    const modalContent = document.createElement('div');
-                   modalContent.innerHTML = `<h2 style="text-align: center; font-size: 24px; font-weight: bold;">${markerData.name}</h2> 
-                   <br>
-                   Instagram: <a style="color: blue;" href="https://www.instagram.com/${markerData.instagram}" target="_blank">${markerData.instagram}</a>
-                   <br>
-                   Website: <a style="color: blue;" href="https://${markerData.website}" target="_blank">${markerData.website}</a>
-                   `;
-                   //modalContent.innerHTML = `<h2>Club Details</h2>`;
+                   modalContent.innerHTML = `<h2 style="text-align: center; font-size: 24px; font-weight: bold;">${markerData.name}</h2>`;
+
+                   modalContent.innerHTML += `<br>`;
+                   if (markerData.instagram !== null) {
+                       modalContent.innerHTML += `<p>Instagram: <a style="color: blue;" href="https://www.instagram.com/${markerData.instagram}" target="_blank">@${markerData.instagram}</a></p>`;
+                   }
+
+                   if (markerData.website !== null) {
+                       modalContent.innerHTML += `<br>`;
+                       modalContent.innerHTML += `<p>Website: <a style="color: blue;" href="https://${markerData.website}" target="_blank">${markerData.website}</a></p>`;
+                   }
+                   
                    modal.appendChild(modalContent);
 
                    const modalCloseButton = document.createElement('button');
