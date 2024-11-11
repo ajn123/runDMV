@@ -69,7 +69,11 @@
 
                    if (markerData.website !== null) {
                        modalContent.innerHTML += `<br>`;
-                       modalContent.innerHTML += `<p>Website: <a style="color: blue;" href="https://${markerData.website}" target="_blank">${markerData.website}</a></p>`;
+                       if (!markerData.website.startsWith('https://')) {
+                           modalContent.innerHTML += `<p>Website: <a style="color: blue;" href="https://${markerData.website}" target="_blank">${markerData.website}</a></p>`;
+                       } else {
+                           modalContent.innerHTML += `<p>Website: <a style="color: blue;" href="${markerData.website}" target="_blank">${markerData.website}</a></p>`;
+                       }
                    }
                    
                    modal.appendChild(modalContent);
